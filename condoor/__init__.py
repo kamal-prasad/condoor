@@ -54,7 +54,7 @@ __all__ = ['make_connection_from_urls', 'Connection', 'FSM', 'TIMEOUT', 'action'
            'CommandSyntaxError', 'ConnectionAuthenticationError']
 
 drivers = {
-    "ASR9K": ["ASR9K", "CRS", "NCS6K", "NCS4K", "CRS", "NCS5K", "NCS5500", "NCS1K"],
+    "ASR9K": ["ASR9K", "CRS", "NCS6K", "NCS4K", "CRS", "NCS5K", "NCS5500", "NCS1K", "XRV9K"],
     "IOS": ["ASR900"],
     "NX-OS": ["N9K"],
     "generic": ["generic"]
@@ -336,6 +336,8 @@ class Connection(object):
             _family = "NCS4K"
         elif _family.startswith("NCS-50"):
             _family = "NCS5K"
+        elif _family.startswith("IOS-XR"):
+            _family = "XRV9K"
         elif _family.startswith("NCS-55"):
             _family = "NCS5500"
         elif _family.startswith("CRS"):
